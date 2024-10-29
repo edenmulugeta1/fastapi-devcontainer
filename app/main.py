@@ -15,3 +15,10 @@ def zone_apex():
 @api.get("/add/{a}/{b}")
 def add(a: int, b: int):
     return {"sum": a + b}
+@api.get("customer/{idx}"):
+def customer (idx:int):
+    #read the data into df 
+    df = pd.read_csv("../cutomers.csv")
+    customer = df.iloc[idx]
+    return customer.to_dict()
+    
